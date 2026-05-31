@@ -1,5 +1,4 @@
 # FIR Filter Design via Window Method — MATLAB
-### EEE343: Digital Signal Processing | BRAC University | Summer 2024
 
 This project designs a **7th-order highpass FIR filter** using three window functions — Rectangular, Hamming, and Hanning — and validates hand-calculated results against MATLAB's built-in functions.
 
