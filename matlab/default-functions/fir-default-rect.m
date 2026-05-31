@@ -1,7 +1,4 @@
 % =========================================================================
-% EEE343 - Digital Signal Processing | Summer 2024
-% Design Assignment — 7th Order FIR Filter (Rectangular Window)
-%
 % Description:
 %   Designs a 7th-order FIR filter using MATLAB's built-in fir1() with
 %   a rectangular window. Output is visualized using fvtool(). Results
