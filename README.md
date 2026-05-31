@@ -20,10 +20,10 @@ $$H(\omega) = \begin{cases} e^{-j3\omega} & \frac{3\pi}{4} \leq |\omega| \leq \p
 ```
 fir-filter-design-matlab/
 ├── matlab-code/
-│   ├── fir_hand_calculated.m     ← hand-calculated approach (all 3 windows)
-│   ├── fir_rect_default.m        ← rectangular window (MATLAB default)
-│   ├── fir_hamming_default.m     ← hamming window (MATLAB default)
-│   └── fir_hanning_default.m     ← hanning window (MATLAB default)
+│   ├── fir-hand-calculated.m     ← hand-calculated approach (all 3 windows)
+│   ├── fir-rect-default.m        ← rectangular window (MATLAB default)
+│   ├── fir-hamming-default.m     ← hamming window (MATLAB default)
+│   └── fir-hanning-default.m     ← hanning window (MATLAB default)
 ├── results/                      ← magnitude, phase, and pole-zero plots for all 3 windows
 └── README.md
 ```
@@ -89,57 +89,57 @@ h(n) = -(1/π(n-3)) × sin[3π/4 · (n-3)]
 ### Rectangular Window
 
 **Hand Calculated**
-![Magnitude and Phase Response — Rectangular Window (Hand Calculated)](results/rectangular/magnitude_phase_handcalc.png)
+![Magnitude and Phase Response — Rectangular Window (Hand Calculated)](results/rectangular/magnitude-phase-handcalc.png)
 
 **Filter Coefficients (Hand Calculated)**
-![Filter Coefficients — Rectangular Window (Hand Calculated)](results/rectangular/coefficients_handcalc.png)
+![Filter Coefficients — Rectangular Window (Hand Calculated)](results/rectangular/coefficients-handcalc.png)
 
 **MATLAB Default**
-![Magnitude and Phase Response — Rectangular Window (MATLAB Default)](results/rectangular/magnitude_phase_matlab.png)
+![Magnitude and Phase Response — Rectangular Window (MATLAB Default)](results/rectangular/magnitude-phase-matlab.png)
 
 **Filter Coefficients (MATLAB Default)**
-![Filter Coefficients — Rectangular Window (MATLAB Default)](results/rectangular/coefficients_matlab.png)
+![Filter Coefficients — Rectangular Window (MATLAB Default)](results/rectangular/coefficients-matlab.png)
 
 **Pole-Zero Plot**
-![Pole-Zero Plot — Rectangular Window](results/rectangular/pole_zero_plot.png)
+![Pole-Zero Plot — Rectangular Window](results/rectangular/pole-zero-plot.png)
 
 ---
 
 ### Hamming Window
 
 **Hand Calculated**
-![Magnitude and Phase Response — Hamming Window (Hand Calculated)](results/hamming/magnitude_phase_handcalc.png)
+![Magnitude and Phase Response — Hamming Window (Hand Calculated)](results/hamming/magnitude-phase-handcalc.png)
 
 **Filter Coefficients (Hand Calculated)**
-![Filter Coefficients — Hamming Window (Hand Calculated)](results/hamming/coefficients_handcalc.png)
+![Filter Coefficients — Hamming Window (Hand Calculated)](results/hamming/coefficients-handcalc.png)
 
 **MATLAB Default**
-![Magnitude and Phase Response — Hamming Window (MATLAB Default)](results/hamming/magnitude_phase_matlab.png)
+![Magnitude and Phase Response — Hamming Window (MATLAB Default)](results/hamming/magnitude-phase-matlab.png)
 
 **Filter Coefficients (MATLAB Default)**
-![Filter Coefficients — Hamming Window (MATLAB Default)](results/hamming/coefficients_matlab.png)
+![Filter Coefficients — Hamming Window (MATLAB Default)](results/hamming/coefficients-matlab.png)
 
 **Pole-Zero Plot**
-![Pole-Zero Plot — Hamming Window](results/hamming/pole_zero_plot.png)
+![Pole-Zero Plot — Hamming Window](results/hamming/pole-zero-plot.png)
 
 ---
 
 ### Hanning Window
 
 **Hand Calculated**
-![Magnitude and Phase Response — Hanning Window (Hand Calculated)](results/hanning/magnitude_phase_handcalc.png)
+![Magnitude and Phase Response — Hanning Window (Hand Calculated)](results/hanning/magnitude-phase-handcalc.png)
 
 **Filter Coefficients (Hand Calculated)**
-![Filter Coefficients — Hanning Window (Hand Calculated)](results/hanning/coefficients_handcalc.png)
+![Filter Coefficients — Hanning Window (Hand Calculated)](results/hanning/coefficients-handcalc.png)
 
 **MATLAB Default**
-![Magnitude and Phase Response — Hanning Window (MATLAB Default)](results/hanning/magnitude_phase_matlab.png)
+![Magnitude and Phase Response — Hanning Window (MATLAB Default)](results/hanning/magnitude-phase-matlab.png)
 
 **Filter Coefficients (MATLAB Default)**
-![Filter Coefficients — Hanning Window (MATLAB Default)](results/hanning/coefficients_matlab.png)
+![Filter Coefficients — Hanning Window (MATLAB Default)](results/hanning/coefficients-matlab.png)
 
 **Pole-Zero Plot**
-![Pole-Zero Plot — Hanning Window](results/hanning/pole_zero_plot.png)
+![Pole-Zero Plot — Hanning Window](results/hanning/pole-zero-plot.png)
 
 ---
 
