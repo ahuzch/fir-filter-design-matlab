@@ -1,7 +1,4 @@
 % =========================================================================
-% EEE343 - Digital Signal Processing | Summer 2024
-% Design Assignment — 7th Order FIR Filter via Window Method
-%
 % Description:
 %   Designs a 7th-order highpass FIR filter using three window functions:
 %   Rectangular, Hamming, and Hanning. The filter coefficients produced
@@ -13,9 +10,6 @@
 %
 % Cutoff Frequency : 3*pi/4  (normalized to 3/4 in MATLAB's 0-to-1 scale)
 % Filter Order     : 6       (7th-order filter has 7 coefficients, n = 0 to 6)
-%
-% Author : Group 04 — Section 02, BRAC University
-% Date   : 30/09/2024
 % =========================================================================
 
 clc;
