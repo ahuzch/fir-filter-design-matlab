@@ -1,12 +1,18 @@
 # FIR Filter Design via Window Method — MATLAB
 
-This project designs a **7th-order highpass FIR filter** using three window functions — Rectangular, Hamming, and Hanning — and validates hand-calculated results against MATLAB's built-in functions.
+This project designs a **7th-order highpass FIR filter** using three window functions — Rectangular, Hamming, and Hanning — and validates hand-calculated results against MATLAB's default built-in functions.
 
 ---
 
 ## Frequency Characteristic
 
-$$H(\omega) = \begin{cases} e^{-j3\omega} & \frac{3\pi}{4} \leq |\omega| \leq \pi \\ 0 & \text{otherwise} \end{cases}$$
+
+$$H(\omega) = \begin{cases} 
+e^{-j3\omega} & \frac{3\pi}{4} \leq |\omega| \leq \pi \\ 
+0 & \text{otherwise} 
+\end{cases}$$
+
+
 
 - **Filter Type:** Highpass
 - **Filter Order:** 7th order (6th degree, 7 coefficients)
@@ -20,11 +26,13 @@ $$H(\omega) = \begin{cases} e^{-j3\omega} & \frac{3\pi}{4} \leq |\omega| \leq \p
 ```
 fir-filter-design-matlab/
 ├── matlab-code/
-│   ├── fir-hand-calculated.m     ← hand-calculated approach (all 3 windows)
-│   ├── fir-rect-default.m        ← rectangular window (MATLAB default)
-│   ├── fir-hamming-default.m     ← hamming window (MATLAB default)
-│   └── fir-hanning-default.m     ← hanning window (MATLAB default)
-├── results/                      ← magnitude, phase, and pole-zero plots for all 3 windows
+│   ├── hand-calculated/
+│   │   └── fir-filter-handcalc.m     ← hand-calculated approach (all 3 windows)
+│   └── default-functions/
+│       ├── fir-rect.m                ← rectangular window (MATLAB default)
+│       ├── fir-hamming.m             ← hamming window (MATLAB default)
+│       └── fir-hanning.m             ← hanning window (MATLAB default)
+├── results/                          ← magnitude, phase, and pole-zero plots for all 3 windows
 └── README.md
 ```
 
@@ -32,11 +40,17 @@ fir-filter-design-matlab/
 
 ## Window Functions
 
-| Window | Formula |
-|---|---|
-| Rectangular | w(n) = 1 |
-| Hamming | 0.54 + 0.46·cos(2πn/(N-1)) |
-| Hanning | 0.5 − 0.5·cos(2πn/(N-1)) |
+**Rectangular**
+
+$$w(n) = 1$$
+
+**Hamming**
+
+$$w(n) = 0.54 + 0.46 \cdot \cos\left(\frac{2\pi n}{N-1}\right)$$
+
+**Hanning**
+
+$$w(n) = 0.5 - 0.5 \cdot \cos\left(\frac{2\pi n}{N-1}\right)$$
 
 ---
 
@@ -45,9 +59,11 @@ fir-filter-design-matlab/
 ### Hand-Calculated Formula
 The ideal impulse response derived from the inverse DTFT of H(ω):
 
-```
-h(n) = -(1/π(n-3)) × sin[3π/4 · (n-3)]
-```
+$$h(n) = -\frac{1}{\pi(n-3)} \times \sin\left[\frac{3\pi}{4}(n-3)\right]$$
+
+The windowed impulse response h'(n) is obtained by multiplying h(n) with the window function w(n):
+
+$$h'(n) = h(n) \cdot w(n)$$
 
 ### Rectangular Window
 | n | h(n) | w(n) | h'(n) |
@@ -95,12 +111,12 @@ h(n) = -(1/π(n-3)) × sin[3π/4 · (n-3)]
 ![Filter Coefficients — Rectangular Window (Hand Calculated)](results/rectangular/coefficients-handcalc.png)
 
 **MATLAB Default**
-![Magnitude and Phase Response — Rectangular Window (MATLAB Default)](results/rectangular/magnitude-phase-matlab.png)
+![Magnitude and Phase Response — Rectangular Window (MATLAB Default)](results/rectangular/magnitude-phase-default.png)
 
 **Filter Coefficients (MATLAB Default)**
 ![Filter Coefficients — Rectangular Window (MATLAB Default)](results/rectangular/coefficients-matlab.png)
 
-**Pole-Zero Plot**
+**Pole-Zero Plot (MATLAB Default)**
 ![Pole-Zero Plot — Rectangular Window](results/rectangular/pole-zero-plot.png)
 
 ---
@@ -114,12 +130,12 @@ h(n) = -(1/π(n-3)) × sin[3π/4 · (n-3)]
 ![Filter Coefficients — Hamming Window (Hand Calculated)](results/hamming/coefficients-handcalc.png)
 
 **MATLAB Default**
-![Magnitude and Phase Response — Hamming Window (MATLAB Default)](results/hamming/magnitude-phase-matlab.png)
+![Magnitude and Phase Response — Hamming Window (MATLAB Default)](results/hamming/magnitude-phase-default.png)
 
 **Filter Coefficients (MATLAB Default)**
 ![Filter Coefficients — Hamming Window (MATLAB Default)](results/hamming/coefficients-matlab.png)
 
-**Pole-Zero Plot**
+**Pole-Zero Plot (MATLAB Default)**
 ![Pole-Zero Plot — Hamming Window](results/hamming/pole-zero-plot.png)
 
 ---
@@ -133,12 +149,12 @@ h(n) = -(1/π(n-3)) × sin[3π/4 · (n-3)]
 ![Filter Coefficients — Hanning Window (Hand Calculated)](results/hanning/coefficients-handcalc.png)
 
 **MATLAB Default**
-![Magnitude and Phase Response — Hanning Window (MATLAB Default)](results/hanning/magnitude-phase-matlab.png)
+![Magnitude and Phase Response — Hanning Window (MATLAB Default)](results/hanning/magnitude-phase-default.png)
 
 **Filter Coefficients (MATLAB Default)**
 ![Filter Coefficients — Hanning Window (MATLAB Default)](results/hanning/coefficients-matlab.png)
 
-**Pole-Zero Plot**
+**Pole-Zero Plot (MATLAB Default)**
 ![Pole-Zero Plot — Hanning Window](results/hanning/pole-zero-plot.png)
 
 ---
@@ -154,6 +170,6 @@ h(n) = -(1/π(n-3)) × sin[3π/4 · (n-3)]
 The **Hanning window** is the optimal choice for this design because:
 - It has the **lowest sidelobe levels** among the three windows, minimizing spectral leakage
 - Its hand-calculated filter coefficients and phase response **most closely match** MATLAB's built-in function results
-- It provides the **smoothest frequency response** due to its cosine taper forcing the first and last coefficients to zero
+- It provides the **smoothest frequency response** with the least energy leakage, resulting in better filter efficiency, requiring less power while providing more precise signal representation
 
-All three windows produce marginally stable filters, with all poles located at the origin inside the unit circle — which is expected behavior for any FIR filter.
+All three windows produce marginally stable filters, with all poles located at the origin inside the unit circle.
